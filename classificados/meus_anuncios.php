@@ -38,7 +38,7 @@ if (empty($_SESSION['cLogin'])) {
             <td><?php echo $anuncio['estado']; ?></td>
         </tr>
 
-        <?php endforeach; ?>
+        <?php //endforeach; ?>
     </table>
 </div>
 <?php require 'pages/footer.php'; ?>
