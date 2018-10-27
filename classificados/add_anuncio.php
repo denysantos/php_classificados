@@ -42,10 +42,13 @@ if(isset($_POST['titulo']) && !empty($_POST['titulo'])) {
                 require 'classes/categoria.class.php';
                 $c = new Categorias();
                 $cats = $c->getLista();
-                foreach($cats as $cat);
+                foreach($cats as $cat) {                    
+                
                 ?>
                 <option value="<?php echo $cat['id']; ?>"><?php echo utf8_encode($cat['nome']); ?></option>
-
+                <?php
+                }
+                ?>
                 <?php //endforeach;?>
             </select>
         </div>

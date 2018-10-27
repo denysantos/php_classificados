@@ -8,8 +8,8 @@ class Anuncios {
         $sql = $pdo->prepare("SELECT *,"
                            . "(SELECT anuncios_imagens.url"
                            . "   FROM anuncios_imagens"
-                           . "  WHERE anuncios_imagens.id_usuario = anuncios.id"
-                           . "  LIMIT 1) AS url"
+                           . "  WHERE anuncios_imagens.id_anuncio = anuncios.id"
+                           . "  ) AS url"
                            .  "  FROM anuncios"
                            . "  WHERE id_usuario = :id_usuario");
         $sql->bindValue(":id_usuario", $_SESSION['cLogin']);

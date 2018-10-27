@@ -28,17 +28,35 @@ if (empty($_SESSION['cLogin'])) {
         $a = new Anuncios();
         $anuncios = $a->getMeusAnuncios();
 
-        foreach ($anuncios as $anuncio);
+        foreach ($anuncios as $anuncio){
+    
         ?>
 
         <tr>
-            <td><img src="assets/images/anuncios/<?php echo $anuncio['url']; ?>" border="0"></td>            
+            <td>
+                <?php
+                if(!empty($anuncio['url'])):?>
+            
+                <img src="assets/images/anuncios/<?php echo $anuncio['url']; ?>" height="80" border="0">
+            
+                <?php else: ?>
+                
+                <img src="assets/images/default.JPG" height="80" border="0" />
+                
+                <?php endif; ?>
+            
+            </td>
             <td><?php echo $anuncio['titulo']; ?></td>
             <td>R$ <?php echo number_format($anuncio['valor'], 2); ?></td>
             <td><?php echo $anuncio['estado']; ?></td>
+        <?php 
+        
+        }    
+        
+        ?>
         </tr>
-
-        <?php //endforeach; ?>
+        
     </table>
+    
 </div>
 <?php require 'pages/footer.php'; ?>
