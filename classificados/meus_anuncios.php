@@ -11,7 +11,7 @@ if (empty($_SESSION['cLogin'])) {
 ?>
 <div class="container">
     <h1>Meus anúncios</h1>    
-    
+
     <a href="add_anuncio.php" class="btn btn-default">Adicionar Anúncio</a>
 
     <table class="table table-striped">
@@ -28,35 +28,34 @@ if (empty($_SESSION['cLogin'])) {
         $a = new Anuncios();
         $anuncios = $a->getMeusAnuncios();
 
-        foreach ($anuncios as $anuncio){
-    
-        ?>
+        foreach ($anuncios as $anuncio) {
+            ?>
 
-        <tr>
-            <td>
-                <?php
-                if(!empty($anuncio['url'])):?>
-            
-                <img src="assets/images/anuncios/<?php echo $anuncio['url']; ?>" height="80" border="0">
-            
-                <?php else: ?>
-                
-                <img src="assets/images/default.JPG" height="80" border="0" />
-                
-                <?php endif; ?>
-            
-            </td>
-            <td><?php echo $anuncio['titulo']; ?></td>
-            <td>R$ <?php echo number_format($anuncio['valor'], 2); ?></td>
-            <td><?php echo $anuncio['estado']; ?></td>
-        <?php 
-        
-        }    
-        
-        ?>
+            <tr>
+                <td>
+                    <?php if (!empty($anuncio['url'])): ?>
+
+                        <img src="assets/images/anuncios/<?php echo $anuncio['url']; ?>" height="50" border="0">
+
+    <?php else: ?>
+
+                        <img src="assets/images/default.JPG" height="50" border="0" />
+
+    <?php endif; ?>
+
+                </td>
+                <td><?php echo $anuncio['titulo']; ?></td>
+                <td>R$ <?php echo number_format($anuncio['valor'], 2); ?></td>
+                <td>
+                    <a href="editar_anuncio.php?id=<?php echo $anuncio['id'] ?>" class="btn btn-success">Editar</a>
+                    <a href="excluir_anuncio.php?id=<?php echo $anuncio['id'] ?>" class="btn btn-danger">Excluir</a>
+                </td>
+    <?php
+}
+?>
         </tr>
-        
+
     </table>
-    
+
 </div>
 <?php require 'pages/footer.php'; ?>

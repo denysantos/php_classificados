@@ -32,7 +32,7 @@ if(isset($_POST['titulo']) && !empty($_POST['titulo'])) {
 ?>
     
 <div class="container">
-    <h1>Meus anúncios -Adicionar anúncio</h1>
+    <h1>Meus anúncios - Adicionar anúncio</h1>
 
     <form method="POST" enctype="multipart/form-data">
         <div class="form-group">
